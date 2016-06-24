@@ -1,0 +1,15 @@
+---
+# tasks file for sirkjohannsen.icinga2 repo.yml
+
+- name: add key of repository
+  apt_key:
+    url: http://packages.icinga.org/icinga.key
+    state: present
+
+- name: add repository
+  apt_repository:
+    repo: "deb http://packages.icinga.org/ubuntu icinga-{{ ansible_distribution_release }} main"
+    update_cache: yes
+
+
+

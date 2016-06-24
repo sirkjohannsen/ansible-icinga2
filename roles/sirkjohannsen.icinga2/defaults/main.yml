@@ -1,0 +1,8 @@
+---
+# defaults file for sirkjohannsen.icinga2
+
+create_repo		: true
+icinga2_packages	: [ 'icinga2', 'icinga2-classicui' ]
+web2package_state	: 'present'
+icinga2_web2_packages	: [ 'mysql-server', 'mysql-client', 'icinga2-ido-mysql', 'icingaweb2' ]
+icinga2_api		: 'enable'

@@ -1,0 +1,27 @@
+---
+# tasks file for sirkjohannsen.icinga2
+ # Create the repo
+ - include: repo.yml
+   when: create_repo == true
+
+ # Install packages
+ - include: packages.yml
+
+ - name: Set icinga_feature to enable based on web2package_state
+   set_fact:
+     icinga_feature: 'enable'
+   when: ( web2package_state == 'latest' or web2package_state == 'present' )
+
+ - name: Set icinga_feature to disable based on web2package_state
+   set_fact:
+     icinga_feature: 'disable'
+   when: ( web2package_state == 'absent' )
+
+ - name: Enable/Disable Icinga2 Web ido-mysql and command features
+   icinga2_feature: feature={{ item }} action={{ icinga_feature }}
+   with_items:
+     - 'ido-mysql'
+     - 'command'
+
+ - name: Enable/Disable Icinga2 API
+   icinga2_feature: feature=api action={{ icinga2_api }}

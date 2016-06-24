@@ -1,0 +1,10 @@
+---
+# tasks file for sirkjohannsen.icinga2 repo.yml
+
+- name: install the latest icinga2 version
+  package: name={{ item }} state=present
+  with_items: "{{ icinga2_packages }}"
+
+- name: install or remove web2 extra packages
+  package: name={{ item }} state={{ web2package_state }}
+  with_items: "{{ icinga2_web2_packages }}"
