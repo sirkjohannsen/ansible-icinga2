@@ -1,0 +1,7 @@
+- name: Icinga2 Sirk Johannsen Test
+  hosts: localhost
+  vars:
+  tasks:
+  handlers:
+  roles:
+    - sirkjohannsen.icinga2

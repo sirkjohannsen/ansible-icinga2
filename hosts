@@ -1,0 +1,5 @@
+[localhost]
+127.0.0.1 ansible_connection=local
+[gamer]
+62.75.253.80 ansible_user=root
+
