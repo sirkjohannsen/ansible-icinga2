@@ -1,0 +1,4 @@
+---
+-
+  playbook: test/integration/default.yml
+  inventory: hosts
