@@ -10,25 +10,23 @@ provisioner:
   verbose: "vvvv"
   diff: true
   mygroup: localhost
-  groups: 
+  groups:
     localhost:
       - localhost
   hosts: test-kitchen
-  require_chef_for_busser: false
+  require_chef_for_busser: true
   require_ruby_for_busser: true
   ansible_verbosity: 2
   ansible_verbose: true
   enable_yum_epel: true
   extra_vars:
-  # web2package_state: 'absent' 
-   web2package_state: 'present' 
+  # web2package_state: 'absent'
+   web2package_state: 'present'
 
 platforms:
   - name: ubuntu-16.04
+  - name: ubuntu-14.04
 
 suites:
   - name: default
 
-# Fix for: https://github.com/neillturner/kitchen-ansible/issues/66
-verifier:
-  ruby_bindir: '/usr/bin'
